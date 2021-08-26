@@ -23,19 +23,22 @@
 
 package com.iluwatar.dependency.injection;
 
-import lombok.RequiredArgsConstructor;
-
 /**
- * AdvancedWizard implements inversion of control. It depends on abstraction that can be injected
- * through its constructor.
+ * AdvancedWizard implements inversion of control. It depends on abstraction
+ * that can be injected through its constructor.
  */
-@RequiredArgsConstructor
 public class AdvancedWizard implements Wizard {
 
-  private final Tobacco tobacco;
+	private final Tobacco tobacco;
 
-  @Override
-  public void smoke() {
-    tobacco.smoke(this);
-  }
+	public AdvancedWizard(Tobacco tobacco) {
+		super();
+		this.tobacco = tobacco;
+	}
+
+	@Override
+	public void smoke() {
+		tobacco.smoke(this);
+	}
+
 }

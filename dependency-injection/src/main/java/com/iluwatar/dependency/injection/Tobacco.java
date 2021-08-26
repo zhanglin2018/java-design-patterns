@@ -30,9 +30,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public abstract class Tobacco {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(Tobacco.class);
 
   public void smoke(Wizard wizard) {
-    LOGGER.info("{} smoking {}", wizard.getClass().getSimpleName(),
+	  log.info("{} smoking {}", wizard.getClass().getSimpleName(),
         this.getClass().getSimpleName());
   }
 }

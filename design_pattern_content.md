@@ -19,7 +19,7 @@ See details for [factory method](./factory-method/README.md)
 
 **5. Abstract Factory**
 
-See details for [Abstract Factory](./Abstract-factory/README.md)
+See details for [Abstract Factory](./abstract-factory/README.md)
 
 **6. factory-jit**
 
@@ -37,3 +37,10 @@ See details for [converter](./converter/README.md)
 
 See details for [Dependency Injection](./dependency-injection/README.md)
 
+**10. Monostate**
+
+See details for [Monostate](./monostate/README.md)
+
+**11. Multiton**
+
+See details for [Multiton](./multiton/README.md)

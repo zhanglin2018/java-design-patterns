@@ -26,25 +26,28 @@ package com.iluwatar.factory;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Factory is an object for creating other objects, it providing Providing a static method to 
- * create and return objects of varying classes, in order to hide the implementation logic 
- * and makes client code focus on usage rather then objects initialization and management.
+ * Factory is an object for creating other objects, it providing Providing a
+ * static method to create and return objects of varying classes, in order to
+ * hide the implementation logic and makes client code focus on usage rather
+ * then objects initialization and management.
  *
- * <p>In this example an alchemist manufactures coins. CoinFactory is the factory class and it
- * provides a static method to create different types of coins.
+ * <p>
+ * In this example an alchemist manufactures coins. CoinFactory is the factory
+ * class and it provides a static method to create different types of coins.
  */
 
 @Slf4j
 public class App {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program main entry point.
-   */
-  public static void main(String[] args) {
-    LOGGER.info("The alchemist begins his work.");
-    var coin1 = CoinFactory.getCoin(CoinType.COPPER);
-    var coin2 = CoinFactory.getCoin(CoinType.GOLD);
-    LOGGER.info(coin1.getDescription());
-    LOGGER.info(coin2.getDescription());
-  }
+	/**
+	 * Program main entry point.
+	 */
+	public static void main(String[] args) {
+		log.info("The alchemist begins his work.");
+		var coin1 = CoinFactory.getCoin(CoinType.COPPER);
+		var coin2 = CoinFactory.getCoin(CoinType.GOLD);
+		log.info(coin1.getDescription());
+		log.info(coin2.getDescription());
+	}
 }

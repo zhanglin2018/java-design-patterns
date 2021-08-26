@@ -23,23 +23,64 @@
 
 package com.iluwatar.converter;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import java.util.Objects;
 
 /**
  * User DTO class.
  */
-@RequiredArgsConstructor
-@Getter
-@EqualsAndHashCode
-@ToString
 public class UserDto {
 
-  private final String firstName;
-  private final String lastName;
-  private final boolean active;
-  private final String email;
+	private final String firstName;
+	private final String lastName;
+	private final boolean active;
+	private final String email;
 
+	public UserDto(String firstName, String lastName, boolean active, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.active = active;
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	@SuppressWarnings("boxing")
+	@Override
+	public int hashCode() {
+		return Objects.hash(active, email, firstName, lastName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserDto other = (UserDto) obj;
+		return active == other.active && Objects.equals(email, other.email)
+				&& Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
+	}
+
+	@Override
+	public String toString() {
+		return "UserDto [firstName=" + firstName + ", lastName=" + lastName + ", active=" + active + ", email=" + email
+				+ "]";
+	}
 }

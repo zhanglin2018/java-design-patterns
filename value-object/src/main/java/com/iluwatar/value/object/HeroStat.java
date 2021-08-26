@@ -22,36 +22,64 @@
  */
 
 package com.iluwatar.value.object;
-
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import java.util.Objects;
 
 /**
  * HeroStat is a value object.
  *
- * @see <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html">
- *     http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html
- *     </a>
+ * @see <a href=
+ *      "http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html">
+ *      http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html
+ *      </a>
  */
-@Getter
-@ToString
-@EqualsAndHashCode
-@RequiredArgsConstructor
 public class HeroStat {
 
-  // Stats for a hero
+	// Stats for a hero
 
-  private final int strength;
-  private final int intelligence;
-  private final int luck;
+	private final int strength;
+	private final int intelligence;
+	private final int luck;
 
-  // Static factory method to create new instances.
-  public static HeroStat valueOf(int strength, int intelligence, int luck) {
-    return new HeroStat(strength, intelligence, luck);
-  }
+// Static factory method to create new instances.
+	public static HeroStat valueOf(int strength, int intelligence, int luck) {
+		return new HeroStat(strength, intelligence, luck);
+	}
 
-  // The clone() method should not be public. Just don't override it.
+	public HeroStat(int strength, int intelligence, int luck) {
+		super();
+		this.strength = strength;
+		this.intelligence = intelligence;
+		this.luck = luck;
+	}
 
+	public int getStrength() {
+		return strength;
+	}
+
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	public int getLuck() {
+		return luck;
+	}
+
+	// The clone() method should not be public. Just don't override it.
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(intelligence, luck, strength);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		HeroStat other = (HeroStat) obj;
+		return intelligence == other.intelligence && luck == other.luck && strength == other.strength;
+	}
 }

@@ -23,12 +23,9 @@
 
 package com.iluwatar.factory.method;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * WeaponType enumeration.
  */
-@RequiredArgsConstructor
 public enum WeaponType {
 
   SHORT_SWORD("short sword"),
@@ -36,7 +33,11 @@ public enum WeaponType {
   AXE("axe"),
   UNDEFINED("");
 
-  private final String title;
+  private WeaponType(String title) {
+	this.title = title;
+}
+
+private final String title;
 
   @Override
   public String toString() {

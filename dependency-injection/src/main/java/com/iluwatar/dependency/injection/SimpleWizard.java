@@ -24,14 +24,15 @@
 package com.iluwatar.dependency.injection;
 
 /**
- * Naive Wizard implementation violating the inversion of control principle. It should depend on
- * abstraction instead.
+ * Naive Wizard implementation violating the inversion of control principle. It
+ * should depend on abstraction instead.
  */
 public class SimpleWizard implements Wizard {
 
-  private final OldTobyTobacco tobacco = new OldTobyTobacco();
+	private final OldTobyTobacco tobacco = new OldTobyTobacco();
 
-  public void smoke() {
-    tobacco.smoke(this);
-  }
+	@Override
+	public void smoke() {
+		tobacco.smoke(this);
+	}
 }

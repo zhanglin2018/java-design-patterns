@@ -37,7 +37,11 @@ public enum HairType {
   LONG_STRAIGHT("long straight"),
   LONG_CURLY("long curly");
 
-  private final String title;
+  private HairType(String title) {
+	this.title = title;
+}
+
+private final String title;
 
   @Override
   public String toString() {

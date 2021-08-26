@@ -47,6 +47,8 @@ public class App {
     var loadBalancer2 = new LoadBalancer();
     loadBalancer1.serverRequest(new Request("Hello"));
     loadBalancer2.serverRequest(new Request("Hello World"));
+    loadBalancer1.serverRequest(new Request("Hello"));
+    loadBalancer2.serverRequest(new Request("Hello World"));
   }
 
 }

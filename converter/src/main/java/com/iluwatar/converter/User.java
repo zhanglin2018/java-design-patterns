@@ -23,21 +23,64 @@
 
 package com.iluwatar.converter;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import java.util.Objects;
 
 /**
  * User class.
  */
-@ToString
-@EqualsAndHashCode
-@Getter
-@RequiredArgsConstructor
 public class User {
-  private final String firstName;
-  private final String lastName;
-  private final boolean active;
-  private final String userId;
+
+	private final String firstName;
+	private final String lastName;
+	private final boolean active;
+	private final String userId;
+
+	public User(String firstName, String lastName, boolean active, String userId) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.active = active;
+		this.userId = userId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	@SuppressWarnings("boxing")
+	@Override
+	public int hashCode() {
+		return Objects.hash(active, firstName, lastName, userId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return active == other.active && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(userId, other.userId);
+	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", active=" + active + ", userId=" + userId
+				+ "]";
+	}
 }

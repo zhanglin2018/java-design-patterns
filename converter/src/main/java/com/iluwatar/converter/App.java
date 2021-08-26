@@ -27,37 +27,36 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * The Converter pattern is a behavioral design pattern which allows a common way of bidirectional
- * conversion between corresponding types (e.g. DTO and domain representations of the logically
- * isomorphic types). Moreover, the pattern introduces a common way of converting a collection of
- * objects between types.
+ * The Converter pattern is a behavioral design pattern which allows a common
+ * way of bidirectional conversion between corresponding types (e.g. DTO and
+ * domain representations of the logically isomorphic types). Moreover, the
+ * pattern introduces a common way of converting a collection of objects between
+ * types.
  */
 @Slf4j
 public class App {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    Converter<UserDto, User> userConverter = new UserConverter();
+	/**
+	 * Program entry point.
+	 *
+	 * @param args command line args
+	 */
 
-    UserDto dtoUser = new UserDto("John", "Doe", true, "whatever[at]wherever.com");
-    User user = userConverter.convertFromDto(dtoUser);
-    LOGGER.info("Entity converted from DTO: {}", user);
+	public static void main(String[] args) {
+		Converter<UserDto, User> userConverter = new UserConverter();
 
-    var users = List.of(
-        new User("Camile", "Tough", false, "124sad"),
-        new User("Marti", "Luther", true, "42309fd"),
-        new User("Kate", "Smith", true, "if0243")
-    );
-    LOGGER.info("Domain entities:");
-    users.stream().map(User::toString).forEach(LOGGER::info);
+		UserDto dtoUser = new UserDto("John", "Doe", true, "whatever[at]wherever.com");
+		User user = userConverter.convertFromDto(dtoUser);
+		log.info("Entity converted from DTO: {}", user);
 
-    LOGGER.info("DTO entities converted from domain:");
-    List<UserDto> dtoEntities = userConverter.createFromEntities(users);
-    dtoEntities.stream().map(UserDto::toString).forEach(LOGGER::info);
+		var users = List.of(new User("Camile", "Tough", false, "124sad"), new User("Marti", "Luther", true, "42309fd"),
+				new User("Kate", "Smith", true, "if0243"));
+		log.info("Domain entities:");
+		users.stream().map(User::toString).forEach(log::info);
 
-  }
+		log.info("DTO entities converted from domain:");
+		List<UserDto> dtoEntities = userConverter.createFromEntities(users);
+		dtoEntities.stream().map(UserDto::toString).forEach(log::info);
+	}
 }

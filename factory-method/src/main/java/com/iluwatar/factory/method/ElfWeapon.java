@@ -23,20 +23,25 @@
 
 package com.iluwatar.factory.method;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
 /**
  * ElfWeapon.
  */
-@RequiredArgsConstructor
-@Getter
 public class ElfWeapon implements Weapon {
 
-  private final WeaponType weaponType;
+	@Override
+	public WeaponType getWeaponType() {
+		return weaponType;
+	}
 
-  @Override
-  public String toString() {
-    return "an elven " + weaponType;
-  }
+	private final WeaponType weaponType;
+
+	@Override
+	public String toString() {
+		return "an elven " + weaponType;
+	}
+
+	public ElfWeapon(WeaponType weaponType) {
+		super();
+		this.weaponType = weaponType;
+	}
 }

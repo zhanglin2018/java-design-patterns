@@ -22,7 +22,6 @@
  */
 
 package com.iluwatar.factory.method;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -40,7 +39,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class App {
-
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
+	
   /**
    * Program entry point.
    * @param args command line args
@@ -49,14 +49,14 @@ public class App {
 
     Blacksmith blacksmith = new OrcBlacksmith();
     Weapon weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
-    LOGGER.info("{} manufactured {}", blacksmith, weapon);
+    log.info("{} manufactured {}", blacksmith, weapon);
     weapon = blacksmith.manufactureWeapon(WeaponType.AXE);
-    LOGGER.info("{} manufactured {}", blacksmith, weapon);
+    log.info("{} manufactured {}", blacksmith, weapon);
 
     blacksmith = new ElfBlacksmith();
     weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);
-    LOGGER.info("{} manufactured {}", blacksmith, weapon);
+    log.info("{} manufactured {}", blacksmith, weapon);
     weapon = blacksmith.manufactureWeapon(WeaponType.AXE);
-    LOGGER.info("{} manufactured {}", blacksmith, weapon);
+    log.info("{} manufactured {}", blacksmith, weapon);
   }
 }

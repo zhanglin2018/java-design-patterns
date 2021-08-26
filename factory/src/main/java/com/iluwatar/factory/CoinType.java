@@ -24,18 +24,21 @@
 package com.iluwatar.factory;
 
 import java.util.function.Supplier;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 /**
  * Enumeration for different types of coins.
  */
-@RequiredArgsConstructor
-@Getter
 public enum CoinType {
 
-  COPPER(CopperCoin::new),
-  GOLD(GoldCoin::new);
+	COPPER(CopperCoin::new), GOLD(GoldCoin::new);
 
-  private final Supplier<Coin> constructor;
+	private CoinType(Supplier<Coin> constructor) {
+		this.constructor = constructor;
+	}
+
+	public Supplier<Coin> getConstructor() {
+		return constructor;
+	}
+
+	private final Supplier<Coin> constructor;
 }

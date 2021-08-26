@@ -38,7 +38,11 @@ public enum Armor {
 
   private final String title;
 
-  @Override
+  private Armor(String title) {
+	this.title = title;
+}
+
+@Override
   public String toString() {
     return title;
   }
