@@ -38,7 +38,6 @@ public class ElfWarlord extends Warlord {
   }
 
   public ElfWarlord(ElfWarlord elfWarlord) {
-    super(elfWarlord);
     this.helpType = elfWarlord.helpType;
   }
 

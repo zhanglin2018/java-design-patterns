@@ -39,7 +39,8 @@ import org.junit.jupiter.api.Test;
  */
 public class CharacterTest {
 
-  @Test
+  @SuppressWarnings("boxing")
+@Test
   void testPrototypeStats() throws Exception {
     final var prototype = new Character();
 
@@ -59,7 +60,8 @@ public class CharacterTest {
 
   }
 
-  @Test
+  @SuppressWarnings("boxing")
+@Test
   void testCharacterStats() {
     final var prototype = new Character();
     Arrays.stream(Stats.values()).forEach(stat -> prototype.set(stat, stat.ordinal()));
@@ -72,7 +74,8 @@ public class CharacterTest {
     }
   }
 
-  @Test
+  @SuppressWarnings("boxing")
+@Test
   void testToString() {
     final var prototype = new Character();
     prototype.set(Stats.ARMOR, 1);
@@ -90,7 +93,8 @@ public class CharacterTest {
 
   }
 
-  @Test
+  @SuppressWarnings("boxing")
+@Test
   void testName() {
     final var prototype = new Character();
     prototype.set(Stats.ARMOR, 1);
@@ -106,7 +110,8 @@ public class CharacterTest {
     assertEquals("weak", weak.name());
   }
 
-  @Test
+  @SuppressWarnings("boxing")
+@Test
   void testType() {
     final var prototype = new Character();
     prototype.set(Stats.ARMOR, 1);

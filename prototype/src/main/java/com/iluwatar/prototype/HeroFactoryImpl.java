@@ -23,37 +23,44 @@
 
 package com.iluwatar.prototype;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * Concrete factory class.
  */
-@RequiredArgsConstructor
 public class HeroFactoryImpl implements HeroFactory {
 
-  private final Mage mage;
-  private final Warlord warlord;
-  private final Beast beast;
+	private final Mage mage;
+	private final Warlord warlord;
+	private final Beast beast;
 
-  /**
-   * Create mage.
-   */
-  public Mage createMage() {
-    return mage.copy();
-  }
+	public HeroFactoryImpl(Mage mage, Warlord warlord, Beast beast) {
+		super();
+		this.mage = mage;
+		this.warlord = warlord;
+		this.beast = beast;
+	}
 
-  /**
-   * Create warlord.
-   */
-  public Warlord createWarlord() {
-    return warlord.copy();
-  }
+	/**
+	 * Create mage.
+	 */
+	@Override
+	public Mage createMage() {
+		return mage.copy();
+	}
 
-  /**
-   * Create beast.
-   */
-  public Beast createBeast() {
-    return beast.copy();
-  }
+	/**
+	 * Create warlord.
+	 */
+	@Override
+	public Warlord createWarlord() {
+		return warlord.copy();
+	}
+
+	/**
+	 * Create beast.
+	 */
+	@Override
+	public Beast createBeast() {
+		return beast.copy();
+	}
 
 }

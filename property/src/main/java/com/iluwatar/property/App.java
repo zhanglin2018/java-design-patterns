@@ -22,7 +22,6 @@
  */
 
 package com.iluwatar.property;
-
 import com.iluwatar.property.Character.Type;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,13 +38,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class App {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
   /**
    * Program entry point.
    *
    * @param args command line args
    */
-  public static void main(String[] args) {
+  @SuppressWarnings("boxing")
+public static void main(String[] args) {
     /* set up */
     var charProto = new Character();
     charProto.set(Stats.STRENGTH, 10);
@@ -68,16 +69,16 @@ public class App {
     /* usage */
     var mag = new Character("Player_1", mageProto);
     mag.set(Stats.ARMOR, 8);
-    LOGGER.info(mag.toString());
+    log.info(mag.toString());
 
     var warrior = new Character("Player_2", warProto);
-    LOGGER.info(warrior.toString());
+    log.info(warrior.toString());
 
     var rogue = new Character("Player_3", rogueProto);
-    LOGGER.info(rogue.toString());
+    log.info(rogue.toString());
 
     var rogueDouble = new Character("Player_4", rogue);
     rogueDouble.set(Stats.ATTACK_POWER, 12);
-    LOGGER.info(rogueDouble.toString());
+    log.info(rogueDouble.toString());
   }
 }

@@ -44,3 +44,24 @@ See details for [Monostate](./monostate/README.md)
 **11. Multiton**
 
 See details for [Multiton](./multiton/README.md)
+
+**11. Object Mother**
+
+See details for [Object Mother](./object-mother/README.md)
+
+
+**12. Object pool**
+
+See details for [Object pool](./object-pool/README.md)
+
+**13. Property**
+
+See details for [Property](./property/README.md)
+
+**14. Prototype**
+
+See details for [Prototye](./prototype/README.md)
+
+
+
+

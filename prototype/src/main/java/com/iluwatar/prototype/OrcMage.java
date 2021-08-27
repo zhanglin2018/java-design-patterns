@@ -23,20 +23,14 @@
 
 package com.iluwatar.prototype;
 
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
-
 /**
  * OrcMage.
  */
-@EqualsAndHashCode(callSuper = true)
-@RequiredArgsConstructor
 public class OrcMage extends Mage {
 
   private final String weapon;
 
   public OrcMage(OrcMage orcMage) {
-    super(orcMage);
     this.weapon = orcMage.weapon;
   }
 
@@ -49,5 +43,10 @@ public class OrcMage extends Mage {
   public String toString() {
     return "Orcish mage attacks with " + weapon;
   }
+
+public OrcMage(String weapon) {
+	super();
+	this.weapon = weapon;
+}
 
 }

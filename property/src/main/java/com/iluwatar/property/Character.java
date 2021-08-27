@@ -98,9 +98,8 @@ public class Character implements Prototype {
     var containsValue = properties.containsKey(stat);
     if (containsValue) {
       return properties.get(stat);
-    } else {
-      return prototype.get(stat);
     }
+	return prototype.get(stat);
   }
 
   @Override

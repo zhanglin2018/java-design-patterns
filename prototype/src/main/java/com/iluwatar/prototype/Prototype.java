@@ -27,7 +27,5 @@ package com.iluwatar.prototype;
  * Prototype.
  */
 public interface Prototype {
-
   Object copy();
-
 }
