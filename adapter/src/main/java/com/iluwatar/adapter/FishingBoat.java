@@ -26,14 +26,15 @@ package com.iluwatar.adapter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Device class (adaptee in the pattern). We want to reuse this class. Fishing boat moves by
- * sailing.
+ * Device class (adaptee in the pattern). We want to reuse this class. Fishing
+ * boat moves by sailing.
  */
 @Slf4j
 final class FishingBoat {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(FishingBoat.class);
 
-  void sail() {
-    LOGGER.info("The fishing boat is sailing");
-  }
+	void sail() {
+		log.info("The fishing boat is sailing");
+	}
 
 }

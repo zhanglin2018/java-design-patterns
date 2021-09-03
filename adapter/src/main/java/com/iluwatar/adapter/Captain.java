@@ -23,22 +23,28 @@
 
 package com.iluwatar.adapter;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 /**
- * The Captain uses {@link RowingBoat} to sail. <br> This is the client in the pattern.
+ * The Captain uses {@link RowingBoat} to sail. <br>
+ * This is the client in the pattern.
  */
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public final class Captain {
 
-  private RowingBoat rowingBoat;
+	private RowingBoat rowingBoat;
 
-  void row() {
-    rowingBoat.row();
-  }
+	public Captain(RowingBoat rowingBoat) {
+		super();
+		this.rowingBoat = rowingBoat;
+	}
+
+	public Captain() {
+	}
+
+	void row() {
+		rowingBoat.row();
+	}
+
+	public void setRowingBoat(RowingBoat rowingBoat) {
+		this.rowingBoat = rowingBoat;
+	}
 
 }
