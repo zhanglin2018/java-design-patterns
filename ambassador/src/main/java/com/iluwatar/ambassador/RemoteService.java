@@ -33,48 +33,50 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class RemoteService implements RemoteServiceInterface {
-  private static final int THRESHOLD = 200;
-  private static RemoteService service = null;
-  private final RandomProvider randomProvider;
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RemoteService.class);
 
-  static synchronized RemoteService getRemoteService() {
-    if (service == null) {
-      service = new RemoteService();
-    }
-    return service;
-  }
+	private static final int THRESHOLD = 200;
+	private static RemoteService service = null;
+	private final RandomProvider randomProvider;
 
-  private RemoteService() {
-    this(Math::random);
-  }
+	static synchronized RemoteService getRemoteService() {
+		if (service == null) {
+			service = new RemoteService();
+		}
+		return service;
+	}
 
-  /**
-   * This constructor is used for testing purposes only.
-   */
-  RemoteService(RandomProvider randomProvider) {
-    this.randomProvider = randomProvider;
-  }
+	private RemoteService() {
+		this(Math::random);
+	}
 
-  /**
-   * Remote function takes a value and multiplies it by 10 taking a random amount of time. Will
-   * sometimes return -1. This imitates connectivity issues a client might have to account for.
-   *
-   * @param value integer value to be multiplied.
-   * @return if waitTime is less than {@link RemoteService#THRESHOLD}, it returns value * 10,
-   *     otherwise {@link RemoteServiceStatus#FAILURE}.
-   */
-  @Override
-  public long doRemoteFunction(int value) {
+	/**
+	 * This constructor is used for testing purposes only.
+	 */
+	RemoteService(RandomProvider randomProvider) {
+		this.randomProvider = randomProvider;
+	}
 
-    long waitTime = (long) Math.floor(randomProvider.random() * 1000);
+	/**
+	 * Remote function takes a value and multiplies it by 10 taking a random amount
+	 * of time. Will sometimes return -1. This imitates connectivity issues a client
+	 * might have to account for.
+	 *
+	 * @param value integer value to be multiplied.
+	 * @return if waitTime is less than {@link RemoteService#THRESHOLD}, it returns
+	 *         value * 10, otherwise {@link RemoteServiceStatus#FAILURE}.
+	 */
+	@Override
+	public long doRemoteFunction(int value) {
 
-    try {
-      sleep(waitTime);
-    } catch (InterruptedException e) {
-      LOGGER.error("Thread sleep state interrupted", e);
-      Thread.currentThread().interrupt();
-    }
-    return waitTime <= THRESHOLD ? value * 10
-        : RemoteServiceStatus.FAILURE.getRemoteServiceStatusValue();
-  }
+		long waitTime = (long) Math.floor(randomProvider.random() * 1000);
+
+		try {
+			sleep(waitTime);
+		} catch (InterruptedException e) {
+			log.error("Thread sleep state interrupted", e);
+			Thread.currentThread().interrupt();
+		}
+		return waitTime <= THRESHOLD ? value * 10 : RemoteServiceStatus.FAILURE.getRemoteServiceStatusValue();
+	}
 }

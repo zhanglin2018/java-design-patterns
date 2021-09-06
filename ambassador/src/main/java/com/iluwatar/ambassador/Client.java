@@ -30,12 +30,13 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Client {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(Client.class);
 
-  private final ServiceAmbassador serviceAmbassador = new ServiceAmbassador();
+	private final ServiceAmbassador serviceAmbassador = new ServiceAmbassador();
 
-  long useService(int value) {
-    var result = serviceAmbassador.doRemoteFunction(value);
-    LOGGER.info("Service result: {}", result);
-    return result;
-  }
+	long useService(int value) {
+		var result = serviceAmbassador.doRemoteFunction(value);
+		log.info("Service result: {}", result);
+		return result;
+	}
 }
