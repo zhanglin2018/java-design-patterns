@@ -30,14 +30,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class DwarvenGoldDigger extends DwarvenMineWorker {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DwarvenCartOperator.class);
 
-  @Override
-  public void work() {
-    LOGGER.info("{} digs for gold.", name());
-  }
+	@Override
+	public void work() {
+		log.info("{} digs for gold.", name());
+	}
 
-  @Override
-  public String name() {
-    return "Dwarf gold digger";
-  }
+	@Override
+	public String name() {
+		return "Dwarf gold digger";
+	}
 }
