@@ -38,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class App {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
   /**
    * Program entry point.
@@ -48,10 +49,10 @@ public class App {
 
     var messenger = new Messenger();
 
-    LOGGER.info("Message from the orcs: ");
+    log.info("Message from the orcs: ");
     messenger.messageFromOrcs().print();
 
-    LOGGER.info("Message from the elves: ");
+    log.info("Message from the elves: ");
     messenger.messageFromElves().print();
   }
 }

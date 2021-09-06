@@ -23,18 +23,21 @@
 
 package com.iluwatar.composite;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * Letter.
  */
-@RequiredArgsConstructor
 public class Letter extends LetterComposite {
 
-  private final char character;
+	private final char character;
 
-  @Override
-  protected void printThisBefore() {
-    System.out.print(character);
-  }
+	public Letter(char character) {
+		super();
+		this.character = character;
+	}
+
+	@Override
+	protected void printThisBefore() {
+		System.out.print(character);
+	}
+
 }
