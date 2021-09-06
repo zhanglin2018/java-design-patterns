@@ -30,9 +30,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class NetflixService implements VideoStreamingService {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(NetflixService.class);
 
-  @Override
-  public void doProcessing() {
-    LOGGER.info("NetflixService is now processing");
-  }
+	@Override
+	public void doProcessing() {
+		log.info("NetflixService is now processing");
+	}
 }

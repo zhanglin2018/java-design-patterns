@@ -24,29 +24,34 @@
 package com.iluwatar.business.delegate;
 
 import java.util.Locale;
-import lombok.Setter;
 
 /**
  * Class for performing service lookups.
  */
-@Setter
 public class BusinessLookup {
 
-  private NetflixService netflixService;
+	private NetflixService netflixService;
 
-  private YouTubeService youTubeService;
+	private YouTubeService youTubeService;
 
-  /**
-   * Gets service instance based on given movie search string.
-   *
-   * @param movie Search string for the movie.
-   * @return Service instance.
-   */
-  public VideoStreamingService getBusinessService(String movie) {
-    if (movie.toLowerCase(Locale.ROOT).contains("die hard")) {
-      return netflixService;
-    } else {
-      return youTubeService;
-    }
-  }
+	/**
+	 * Gets service instance based on given movie search string.
+	 *
+	 * @param movie Search string for the movie.
+	 * @return Service instance.
+	 */
+	public VideoStreamingService getBusinessService(String movie) {
+		if (movie.toLowerCase(Locale.ROOT).contains("die hard")) {
+			return netflixService;
+		}
+		return youTubeService;
+	}
+
+	public void setNetflixService(NetflixService netflixService) {
+		this.netflixService = netflixService;
+	}
+
+	public void setYouTubeService(YouTubeService youTubeService) {
+		this.youTubeService = youTubeService;
+	}
 }
