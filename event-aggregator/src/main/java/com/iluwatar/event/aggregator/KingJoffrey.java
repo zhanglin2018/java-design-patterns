@@ -30,9 +30,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class KingJoffrey implements EventObserver {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(KingJoffrey.class);
 
-  @Override
-  public void onEvent(Event e) {
-    LOGGER.info("Received event from the King's Hand: {}", e.toString());
-  }
+	@Override
+	public void onEvent(Event e) {
+		log.info("Received event from the King's Hand: {}", e.toString());
+	}
 }

@@ -23,26 +23,22 @@
 
 package com.iluwatar.event.aggregator;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * Weekday enumeration.
  */
-@RequiredArgsConstructor
 public enum Weekday {
 
-  MONDAY("Monday"),
-  TUESDAY("Tuesday"),
-  WEDNESDAY("Wednesday"),
-  THURSDAY("Thursday"),
-  FRIDAY("Friday"),
-  SATURDAY("Saturday"),
-  SUNDAY("Sunday");
+	MONDAY("Monday"), TUESDAY("Tuesday"), WEDNESDAY("Wednesday"), THURSDAY("Thursday"), FRIDAY("Friday"),
+	SATURDAY("Saturday"), SUNDAY("Sunday");
 
-  private final String description;
+	private final String description;
 
-  @Override
-  public String toString() {
-    return description;
-  }
+	@Override
+	public String toString() {
+		return description;
+	}
+
+	private Weekday(String description) {
+		this.description = description;
+	}
 }

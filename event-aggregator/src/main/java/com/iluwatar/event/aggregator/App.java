@@ -28,38 +28,36 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * A system with lots of objects can lead to complexities when a client wants to subscribe to
- * events. The client has to find and register for each object individually, if each object has
- * multiple events then each event requires a separate subscription.
+ * A system with lots of objects can lead to complexities when a client wants to
+ * subscribe to events. The client has to find and register for each object
+ * individually, if each object has multiple events then each event requires a
+ * separate subscription.
  *
- * <p>An Event Aggregator acts as a single source of events for many objects. It registers for all
- * the events of the many objects allowing clients to register with just the aggregator.
+ * <p>
+ * An Event Aggregator acts as a single source of events for many objects. It
+ * registers for all the events of the many objects allowing clients to register
+ * with just the aggregator.
  *
- * <p>In the example {@link LordBaelish}, {@link LordVarys} and {@link Scout} deliver events to
- * {@link KingsHand}. {@link KingsHand}, the event aggregator, then delivers the events to {@link
- * KingJoffrey}.
+ * <p>
+ * In the example {@link LordBaelish}, {@link LordVarys} and {@link Scout}
+ * deliver events to {@link KingsHand}. {@link KingsHand}, the event aggregator,
+ * then delivers the events to {@link KingJoffrey}.
  */
 public class App {
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) {
+	/**
+	 * Program entry point.
+	 *
+	 * @param args command line args
+	 */
+	public static void main(String[] args) {
 
-    var kingJoffrey = new KingJoffrey();
-    var kingsHand = new KingsHand(kingJoffrey);
+		var kingJoffrey = new KingJoffrey();
+		var kingsHand = new KingsHand(kingJoffrey);
 
-    var emitters = List.of(
-        kingsHand,
-        new LordBaelish(kingsHand),
-        new LordVarys(kingsHand),
-        new Scout(kingsHand)
-    );
+		var emitters = List.of(kingsHand, new LordBaelish(kingsHand), new LordVarys(kingsHand), new Scout(kingsHand));
 
-    Arrays.stream(Weekday.values())
-        .<Consumer<? super EventEmitter>>map(day -> emitter -> emitter.timePasses(day))
-        .forEachOrdered(emitters::forEach);
-  }
+		Arrays.stream(Weekday.values()).<Consumer<? super EventEmitter>>map(day -> emitter -> emitter.timePasses(day))
+				.forEachOrdered(emitters::forEach);
+	}
 }

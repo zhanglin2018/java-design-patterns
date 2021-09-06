@@ -23,22 +23,21 @@
 
 package com.iluwatar.event.aggregator;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * Event enumeration.
  */
-@RequiredArgsConstructor
 public enum Event {
 
-  STARK_SIGHTED("Stark sighted"),
-  WARSHIPS_APPROACHING("Warships approaching"),
-  TRAITOR_DETECTED("Traitor detected");
+	STARK_SIGHTED("Stark sighted"), WARSHIPS_APPROACHING("Warships approaching"), TRAITOR_DETECTED("Traitor detected");
 
-  private final String description;
+	private final String description;
 
-  @Override
-  public String toString() {
-    return description;
-  }
+	@Override
+	public String toString() {
+		return description;
+	}
+
+	private Event(String description) {
+		this.description = description;
+	}
 }
