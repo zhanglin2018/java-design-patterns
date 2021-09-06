@@ -124,3 +124,11 @@ See details for [flux](./flux/README.md)
 **13. Flyweight**
 
 See details for [Flyweight](./flyweight/README.md)
+
+**14. front controller**
+
+See details for [front controller](./front-controller/README.md)
+
+**15. marker interface**
+
+See details for [marker interface](./marker/README.md)
