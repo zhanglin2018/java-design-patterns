@@ -25,54 +25,49 @@ package com.iluwatar.abstractdocument;
 
 import com.iluwatar.abstractdocument.domain.Car;
 import com.iluwatar.abstractdocument.domain.enums.Property;
+
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * The Abstract Document pattern enables handling additional, non-static properties. This pattern
- * uses concept of traits to enable type safety and separate properties of different classes into
- * set of interfaces.
+ * The Abstract Document pattern enables handling additional, non-static
+ * properties. This pattern uses concept of traits to enable type safety and
+ * separate properties of different classes into set of interfaces.
  *
- * <p>In Abstract Document pattern,({@link AbstractDocument}) fully implements {@link Document})
- * interface. Traits are then defined to enable access to properties in usual, static way.
+ * <p>
+ * In Abstract Document pattern,({@link AbstractDocument}) fully implements
+ * {@link Document}) interface. Traits are then defined to enable access to
+ * properties in usual, static way.
  */
 @Slf4j
 public class App {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    LOGGER.info("Constructing parts and car");
+	/**
+	 * Program entry point.
+	 *
+	 * @param args command line args
+	 */
+	public static void main(String[] args) {
+		log.info("Constructing parts and car");
 
-    var wheelProperties = Map.of(
-        Property.TYPE.toString(), "wheel",
-        Property.MODEL.toString(), "15C",
-        Property.PRICE.toString(), 100L);
+		var wheelProperties = Map.of(Property.TYPE.toString(), "wheel", Property.MODEL.toString(), "15C",
+				Property.PRICE.toString(), 100L);
 
-    var doorProperties = Map.of(
-        Property.TYPE.toString(), "door",
-        Property.MODEL.toString(), "Lambo",
-        Property.PRICE.toString(), 300L);
+		var doorProperties = Map.of(Property.TYPE.toString(), "door", Property.MODEL.toString(), "Lambo",
+				Property.PRICE.toString(), 300L);
 
-    var carProperties = Map.of(
-        Property.MODEL.toString(), "300SL",
-        Property.PRICE.toString(), 10000L,
-        Property.PARTS.toString(), List.of(wheelProperties, doorProperties));
+		var carProperties = Map.of(Property.MODEL.toString(), "300SL", Property.PRICE.toString(), 10000L,
+				Property.PARTS.toString(), List.of(wheelProperties, doorProperties));
 
-    var car = new Car(carProperties);
+		var car = new Car(carProperties);
 
-    LOGGER.info("Here is our car:");
-    LOGGER.info("-> model: {}", car.getModel().orElseThrow());
-    LOGGER.info("-> price: {}", car.getPrice().orElseThrow());
-    LOGGER.info("-> parts: ");
-    car.getParts().forEach(p -> LOGGER.info("\t{}/{}/{}",
-        p.getType().orElse(null),
-        p.getModel().orElse(null),
-        p.getPrice().orElse(null))
-    );
-  }
+		log.info("Here is our car:");
+		log.info("-> model: {}", car.getModel().orElseThrow());
+		log.info("-> price: {}", car.getPrice().orElseThrow());
+		log.info("-> parts: ");
+		car.getParts().forEach(p -> log.info("\t{}/{}/{}", p.getType().orElse(null), p.getModel().orElse(null),
+				p.getPrice().orElse(null)));
+	}
 }
