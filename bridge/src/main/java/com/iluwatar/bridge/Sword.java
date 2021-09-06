@@ -23,38 +23,41 @@
 
 package com.iluwatar.bridge;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * Sword.
  */
 @Slf4j
-@AllArgsConstructor
 public class Sword implements Weapon {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
+	private final Enchantment enchantment;
 
-  private final Enchantment enchantment;
+	@Override
+	public void wield() {
+		log.info("The sword is wielded.");
+		enchantment.onActivate();
+	}
 
-  @Override
-  public void wield() {
-    LOGGER.info("The sword is wielded.");
-    enchantment.onActivate();
-  }
+	@Override
+	public void swing() {
+		log.info("The sword is swung.");
+		enchantment.apply();
+	}
 
-  @Override
-  public void swing() {
-    LOGGER.info("The sword is swung.");
-    enchantment.apply();
-  }
+	@Override
+	public void unwield() {
+		log.info("The sword is unwielded.");
+		enchantment.onDeactivate();
+	}
 
-  @Override
-  public void unwield() {
-    LOGGER.info("The sword is unwielded.");
-    enchantment.onDeactivate();
-  }
+	@Override
+	public Enchantment getEnchantment() {
+		return enchantment;
+	}
 
-  @Override
-  public Enchantment getEnchantment() {
-    return enchantment;
-  }
+	public Sword(Enchantment enchantment) {
+		super();
+		this.enchantment = enchantment;
+	}
 }

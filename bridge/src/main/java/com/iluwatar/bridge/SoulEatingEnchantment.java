@@ -30,19 +30,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class SoulEatingEnchantment implements Enchantment {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
-  @Override
-  public void onActivate() {
-    LOGGER.info("The item spreads bloodlust.");
-  }
+	@Override
+	public void onActivate() {
+		log.info("The item spreads bloodlust.");
+	}
 
-  @Override
-  public void apply() {
-    LOGGER.info("The item eats the soul of enemies.");
-  }
+	@Override
+	public void apply() {
+		log.info("The item eats the soul of enemies.");
+	}
 
-  @Override
-  public void onDeactivate() {
-    LOGGER.info("Bloodlust slowly disappears.");
-  }
+	@Override
+	public void onDeactivate() {
+		log.info("Bloodlust slowly disappears.");
+	}
 }

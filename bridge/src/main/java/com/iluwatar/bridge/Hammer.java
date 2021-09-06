@@ -23,38 +23,41 @@
 
 package com.iluwatar.bridge;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * Hammer.
  */
 @Slf4j
-@AllArgsConstructor
 public class Hammer implements Weapon {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
+	private final Enchantment enchantment;
 
-  private final Enchantment enchantment;
+	@Override
+	public void wield() {
+		log.info("The hammer is wielded.");
+		enchantment.onActivate();
+	}
 
-  @Override
-  public void wield() {
-    LOGGER.info("The hammer is wielded.");
-    enchantment.onActivate();
-  }
+	@Override
+	public void swing() {
+		log.info("The hammer is swung.");
+		enchantment.apply();
+	}
 
-  @Override
-  public void swing() {
-    LOGGER.info("The hammer is swung.");
-    enchantment.apply();
-  }
+	@Override
+	public void unwield() {
+		log.info("The hammer is unwielded.");
+		enchantment.onDeactivate();
+	}
 
-  @Override
-  public void unwield() {
-    LOGGER.info("The hammer is unwielded.");
-    enchantment.onDeactivate();
-  }
+	@Override
+	public Enchantment getEnchantment() {
+		return enchantment;
+	}
 
-  @Override
-  public Enchantment getEnchantment() {
-    return enchantment;
-  }
+	public Hammer(Enchantment enchantment) {
+		super();
+		this.enchantment = enchantment;
+	}
 }

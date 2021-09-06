@@ -30,19 +30,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class FlyingEnchantment implements Enchantment {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(App.class);
 
-  @Override
-  public void onActivate() {
-    LOGGER.info("The item begins to glow faintly.");
-  }
+	@Override
+	public void onActivate() {
+		log.info("The item begins to glow faintly.");
+	}
 
-  @Override
-  public void apply() {
-    LOGGER.info("The item flies and strikes the enemies finally returning to owner's hand.");
-  }
+	@Override
+	public void apply() {
+		log.info("The item flies and strikes the enemies finally returning to owner's hand.");
+	}
 
-  @Override
-  public void onDeactivate() {
-    LOGGER.info("The item's glow fades.");
-  }
+	@Override
+	public void onDeactivate() {
+		log.info("The item's glow fades.");
+	}
 }
