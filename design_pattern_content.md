@@ -98,8 +98,13 @@ See details for [composite](./composite/README.md)
 
 **7. composite-entity**
 
+**Difficult to understand**
 See details for [composite-entity](./composite-entity/README.md)
 
-**7. decorator**
+**8. decorator**
 
 See details for [decorator](./decorator/README.md)
+
+**9. delegation**
+
+See details for [delegation](./delegation/README.md)

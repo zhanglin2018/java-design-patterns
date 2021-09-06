@@ -27,20 +27,21 @@ import com.iluwatar.delegation.simple.Printer;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Specialised Implementation of {@link Printer} for a Canon Printer, in this case the message to be
- * printed is appended to "Canon Printer : ".
+ * Specialised Implementation of {@link Printer} for a Canon Printer, in this
+ * case the message to be printed is appended to "Canon Printer : ".
  *
  * @see Printer
  */
 @Slf4j
 public class CanonPrinter implements Printer {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CanonPrinter.class);
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void print(String message) {
-    LOGGER.info("Canon Printer : {}", message);
-  }
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void print(String message) {
+		log.info("Canon Printer : {}", message);
+	}
 
 }
