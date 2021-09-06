@@ -37,34 +37,34 @@ import java.util.List;
  */
 public final class Dispatcher {
 
-  private static Dispatcher instance = new Dispatcher();
+	private static Dispatcher instance = new Dispatcher();
 
-  private final List<Store> stores = new LinkedList<>();
+	private final List<Store> stores = new LinkedList<>();
 
-  private Dispatcher() {
-  }
+	private Dispatcher() {
+	}
 
-  public static Dispatcher getInstance() {
-    return instance;
-  }
+	public static Dispatcher getInstance() {
+		return instance;
+	}
 
-  public void registerStore(Store store) {
-    stores.add(store);
-  }
+	public void registerStore(Store store) {
+		stores.add(store);
+	}
 
-  /**
-   * Menu item selected handler.
-   */
-  public void menuItemSelected(MenuItem menuItem) {
-    dispatchAction(new MenuAction(menuItem));
-    if (menuItem == MenuItem.COMPANY) {
-      dispatchAction(new ContentAction(Content.COMPANY));
-    } else {
-      dispatchAction(new ContentAction(Content.PRODUCTS));
-    }
-  }
+	/**
+	 * Menu item selected handler.
+	 */
+	public void menuItemSelected(MenuItem menuItem) {
+		dispatchAction(new MenuAction(menuItem));
+		if (menuItem == MenuItem.COMPANY) {
+			dispatchAction(new ContentAction(Content.COMPANY));
+		} else {
+			dispatchAction(new ContentAction(Content.PRODUCTS));
+		}
+	}
 
-  private void dispatchAction(Action action) {
-    stores.forEach(store -> store.onAction(action));
-  }
+	private void dispatchAction(Action action) {
+		stores.forEach(store -> store.onAction(action));
+	}
 }

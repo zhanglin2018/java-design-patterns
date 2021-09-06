@@ -34,28 +34,29 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class MenuView implements View {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MenuView.class);
 
-  private MenuItem selected = MenuItem.HOME;
+	private MenuItem selected = MenuItem.HOME;
 
-  @Override
-  public void storeChanged(Store store) {
-    var menuStore = (MenuStore) store;
-    selected = menuStore.getSelected();
-    render();
-  }
+	@Override
+	public void storeChanged(Store store) {
+		var menuStore = (MenuStore) store;
+		selected = menuStore.getSelected();
+		render();
+	}
 
-  @Override
-  public void render() {
-    for (var item : MenuItem.values()) {
-      if (selected.equals(item)) {
-        LOGGER.info("* {}", item);
-      } else {
-        LOGGER.info(item.toString());
-      }
-    }
-  }
+	@Override
+	public void render() {
+		for (var item : MenuItem.values()) {
+			if (selected.equals(item)) {
+				log.info("* {}", item);
+			} else {
+				log.info(item.toString());
+			}
+		}
+	}
 
-  public void itemClicked(MenuItem item) {
-    Dispatcher.getInstance().menuItemSelected(item);
-  }
+	public void itemClicked(MenuItem item) {
+		Dispatcher.getInstance().menuItemSelected(item);
+	}
 }

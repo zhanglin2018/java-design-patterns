@@ -108,3 +108,19 @@ See details for [decorator](./decorator/README.md)
 **9. delegation**
 
 See details for [delegation](./delegation/README.md)
+
+**10. event aggregator**
+
+See details for [Event aggregator](./event-aggregator/README.md)
+
+**11. facade**
+
+See details for [facade](./facade/README.md)
+
+**12. flux**
+
+See details for [flux](./flux/README.md)
+
+**13. Flyweight**
+
+See details for [Flyweight](./flyweight/README.md)
