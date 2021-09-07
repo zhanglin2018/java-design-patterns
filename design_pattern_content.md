@@ -132,3 +132,20 @@ See details for [front controller](./front-controller/README.md)
 **15. marker interface**
 
 See details for [marker interface](./marker/README.md)
+
+**16. module**
+
+See details for [module](./module/README.md)
+
+**17. page-object**
+**Difficult to understand**
+See details for [page-object](./page-object/README.md)
+
+**18. proxy**
+
+See details for [proxy](./proxy/README.md)
+
+**19. role-object**
+
+See details for [role-object](./role-object/README.md)
+
