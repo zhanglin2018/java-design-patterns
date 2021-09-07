@@ -165,7 +165,13 @@ See details for [twin](./twin/README.md)
 
 
 **1. Acyclic Visitor** 
+
 See details for [acyclic-visitor](./acyclic-visitor/README.md)
+
+See details for [observer](./observer/README.md)
+
+See details for [Null Object](./null-object/README.md)
+
 
 
 Bytecodegame programming  behavioral
