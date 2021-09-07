@@ -44,7 +44,7 @@ public class OldArithmetic {
    * @return accumulate sum
    */
   public int sum(int... nums) {
-    LOGGER.info("Arithmetic sum {}", VERSION);
+    LOGGER.info("Old Arithmetic sum {}", VERSION);
     return source.accumulateSum(nums);
   }
 
@@ -54,7 +54,7 @@ public class OldArithmetic {
    * @return accumulate multiplication
    */
   public int mul(int... nums) {
-    LOGGER.info("Arithmetic mul {}", VERSION);
+    LOGGER.info("Old Arithmetic mul {}", VERSION);
     return source.accumulateMul(nums);
   }
 }

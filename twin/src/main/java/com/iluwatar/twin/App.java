@@ -24,46 +24,48 @@
 package com.iluwatar.twin;
 
 /**
- * Twin pattern is a design pattern which provides a standard solution to simulate multiple
- * inheritance in Java.
+ * Twin pattern is a design pattern which provides a standard solution to
+ * simulate multiple inheritance in Java.
  *
- * <p>In this example, the essence of the Twin pattern is the {@link BallItem} class and {@link
- * BallThread} class represent the twin objects to coordinate with each other (via the twin
- * reference) like a single class inheriting from {@link GameItem} and {@link Thread}.
+ * <p>
+ * In this example, the essence of the Twin pattern is the {@link BallItem}
+ * class and {@link BallThread} class represent the twin objects to coordinate
+ * with each other (via the twin reference) like a single class inheriting from
+ * {@link GameItem} and {@link Thread}.
  */
 
 public class App {
 
-  /**
-   * Program entry point.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) throws Exception {
+	/**
+	 * Program entry point.
+	 *
+	 * @param args command line args
+	 */
+	public static void main(String[] args) throws Exception {
 
-    var ballItem = new BallItem();
-    var ballThread = new BallThread();
+		var ballItem = new BallItem();
+		var ballThread = new BallThread();
 
-    ballItem.setTwin(ballThread);
-    ballThread.setTwin(ballItem);
+		ballItem.setTwin(ballThread);
+		ballThread.setTwin(ballItem);
 
-    ballThread.start();
+		ballThread.start();
 
-    waiting();
+		waiting();
 
-    ballItem.click();
+		ballItem.click();
 
-    waiting();
+		waiting();
 
-    ballItem.click();
+		ballItem.click();
 
-    waiting();
+		waiting();
 
-    // exit
-    ballThread.stopMe();
-  }
+		// exit
+		ballThread.stopMe();
+	}
 
-  private static void waiting() throws Exception {
-    Thread.sleep(750);
-  }
+	private static void waiting() throws Exception {
+		Thread.sleep(750);
+	}
 }

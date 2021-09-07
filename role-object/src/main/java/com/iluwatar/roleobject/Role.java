@@ -32,28 +32,28 @@ import org.slf4j.LoggerFactory;
  */
 public enum Role {
 
-  Borrower(BorrowerRole.class), Investor(InvestorRole.class);
+	Borrower(BorrowerRole.class), Investor(InvestorRole.class);
 
-  private final Class<? extends CustomerRole> typeCst;
+	private final Class<? extends CustomerRole> typeCst;
 
-  Role(Class<? extends CustomerRole> typeCst) {
-    this.typeCst = typeCst;
-  }
+	Role(Class<? extends CustomerRole> typeCst) {
+		this.typeCst = typeCst;
+	}
 
-  private static final Logger logger = LoggerFactory.getLogger(Role.class);
+	private static final Logger logger = LoggerFactory.getLogger(Role.class);
 
-  /**
-   * Get instance.
-   */
-  @SuppressWarnings("unchecked")
-  public <T extends CustomerRole> Optional<T> instance() {
-    var typeCst = this.typeCst;
-    try {
-      return (Optional<T>) Optional.of(typeCst.newInstance());
-    } catch (InstantiationException | IllegalAccessException e) {
-      logger.error("error creating an object", e);
-    }
-    return Optional.empty();
-  }
+	/**
+	 * Get instance.
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends CustomerRole> Optional<T> instance() {
+		var typeCst = this.typeCst;
+		try {
+			return (Optional<T>) Optional.of(typeCst.newInstance());
+		} catch (InstantiationException | IllegalAccessException e) {
+			logger.error("error creating an object", e);
+		}
+		return Optional.empty();
+	}
 
 }

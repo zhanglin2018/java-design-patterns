@@ -36,7 +36,7 @@ public class OldSource {
    * Implement accumulate sum with old technique.
    */
   public int accumulateSum(int... nums) {
-    LOGGER.info("Source module {}", VERSION);
+    LOGGER.info("Old Source module {}", VERSION);
     var sum = 0;
     for (final var num : nums) {
       sum += num;
@@ -48,7 +48,7 @@ public class OldSource {
    * Implement accumulate multiply with old technique.
    */
   public int accumulateMul(int... nums) {
-    LOGGER.info("Source module {}", VERSION);
+    LOGGER.info("Old Source module {}", VERSION);
     var sum = 1;
     for (final var num : nums) {
       sum *= num;

@@ -146,6 +146,66 @@ See details for [page-object](./page-object/README.md)
 See details for [proxy](./proxy/README.md)
 
 **19. role-object**
-
+**Difficult to understand**
 See details for [role-object](./role-object/README.md)
+
+**20. separated interface**
+
+See details for [separated interface](./separated-interface/README.md)
+
+**21. Strangler**
+
+See details for [Strangler](./strangler/README.md)
+
+**22. twin**
+
+See details for [twin](./twin/README.md)
+
+# 03 | Behavioral (41)
+
+
+**1. Acyclic Visitor** 
+See details for [acyclic-visitor](./acyclic-visitor/README.md)
+
+
+Bytecodegame programming  behavioral
+Cachingcloud distributed performance  behavioral
+Chain of responsibilitygang of four  behavioral
+Circuit Breakercloud distributed decoupling performance  behavioral
+Data Localitygame programming performance  behavioral
+Dirty Flaggame programming performance  behavioral
+Double Buffergame programming performance  behavioral
+Extension objectsextensibility  behavioral
+Feature Toggleextensibility  behavioral
+Game Loopgame programming  behavioral
+Intercepting Filterdecoupling  behavioral
+Interpretergang of four  behavioral
+Iteratorgang of four  behavioral
+Leader Electioncloud distributed  behavioral
+Mediatordecoupling  behavioral
+Mementogang of four  behavioral
+Null Objectextensibility  behavioral
+Observerreactive  behavioral
+Parameter Objectextensibility  behavioral
+Partial Responsedecoupling  behavioral
+Pipelinedecoupling  behavioral
+Poison Pillcloud distributed reactive  behavioral
+Presentationdecoupling  behavioral
+Priority Queue Patterncloud distributed decoupling  behavioral
+Retrycloud distributed performance  behavioral
+Servantdecoupling  behavioral
+Shardingcloud distributed performance  behavioral
+Spatial Partitiongame programming performance  behavioral
+Special Caseextensibility  behavioral
+Specificationdata access  behavioral
+Stategang of four  behavioral
+Strategygang of four  behavioral
+Subclass Sandboxgame programming  behavioral
+Template methodgang of four  behavioral
+Throttlingcloud distributed performance  behavioral
+Trampolineperformance  behavioral
+Transaction Scriptdata access  behavioral
+Type-Objectextensibility game programming  behavioral
+Update Methodgame programming  behavioral
+Visitor
 
