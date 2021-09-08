@@ -30,19 +30,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class HitAndRunMethod extends StealingMethod {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(HitAndRunMethod.class);
 
-  @Override
-  protected String pickTarget() {
-    return "old goblin woman";
-  }
+	@Override
+	protected String pickTarget() {
+		return "old goblin woman";
+	}
 
-  @Override
-  protected void confuseTarget(String target) {
-    LOGGER.info("Approach the {} from behind.", target);
-  }
+	@Override
+	protected void confuseTarget(String target) {
+		log.info("Approach the {} from behind.", target);
+	}
 
-  @Override
-  protected void stealTheItem(String target) {
-    LOGGER.info("Grab the handbag and run away fast!");
-  }
+	@Override
+	protected void stealTheItem(String target) {
+		log.info("Grab the handbag and run away fast!");
+	}
 }

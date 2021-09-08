@@ -170,8 +170,13 @@ See details for [acyclic-visitor](./acyclic-visitor/README.md)
 
 See details for [observer](./observer/README.md)
 
+See details for [strategy](./strategy/README.md)
+
 See details for [Null Object](./null-object/README.md)
 
+See details for [Template-method](./template-method/README.md)
+
+See details for [type-object](./typeobjectpattern/README.md)
 
 
 Bytecodegame programming  behavioral
